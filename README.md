@@ -15,6 +15,12 @@ In order to avoid the download of the whole file it only scans the beginning tag
 npm install
 ```
 
+## Start the webserver
+
+```
+grunt serve
+```
+
 It installs node, bower and php dependencies.
 
 ## Pre requisites
