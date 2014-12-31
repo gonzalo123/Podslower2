@@ -1,0 +1,24 @@
+{
+  "name": "podslower2",
+  "version": "0.0.0",
+  "authors": [
+    "Gonzalo Ayuso <gonzalo123@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.11",
+    "bootstrap": "~3.2.0",
+    "html5shiv": "~3.7.2",
+    "respond": "~1.4.2",
+    "sweetalert": "~0.3.3"
+  },
+  "devDependencies": {}
+}

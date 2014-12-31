@@ -1,0 +1,20 @@
+<div class="jumbotron">
+    <h1>Learn Languages<br>With Slowed Down Podcasts</h1>
+
+    <p class="lead">
+        Want to listen to real podcasts but still feel like they talk too quick for you? It happened to me, too. Hope
+        this helps.
+
+    <form novalidate class="simple-form" name="myForm" ng-submit="listen(myForm)">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">url:</span>
+            <input type="url" name="url" class="form-control" placeholder="http://path.to.podcast.mp3" ng-model="url"
+                   required>
+        </div>
+    </form>
+
+    </p>
+    <p>
+        <input type="submit" class="btn btn-lg btn-success" ng-click="listen(myForm)" value="PodSlow it!"/>
+    </p>
+</div>

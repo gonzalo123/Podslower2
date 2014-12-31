@@ -1,0 +1,146 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+
+.header, .marketing, .footer {
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.header {
+    border-bottom: 1px solid #e5e5e5
+}
+
+.header h3 {
+    padding-bottom: 19px;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px
+}
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 730px
+    }
+}
+
+.container-narrow > hr {
+    margin: 30px 0
+}
+
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5
+}
+
+.jumbotron .btn {
+    padding: 14px 24px;
+    font-size: 21px
+}
+
+.marketing {
+    margin: 40px 0
+}
+
+.marketing p + h4 {
+    margin-top: 28px
+}
+
+@media screen and (min-width: 768px) {
+    .header, .marketing, .footer {
+        padding-right: 0;
+        padding-left: 0
+    }
+
+    .header {
+        margin-bottom: 30px
+    }
+
+    .jumbotron {
+        border-bottom: 0
+    }
+}
+
+body {
+    font-family: 'Open Sans Condensed', sans-serif
+}
+
+.jumbotron h1 {
+    font-size: 53px
+}
+
+.language .lang-title {
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px
+}
+
+.podcast {
+    text-align: center;
+    margin-bottom: 30px
+}
+
+.podcast .podcast-title {
+    font-weight: bold;
+    font-size: 22px
+}
+
+.podcast img {
+    width: 150px;
+    max-width: 100%;
+    margin-bottom: 15px
+}
+
+.episodes {
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding: 0
+}
+
+.episodes li {
+    list-style: none;
+    margin: 20px 0;
+    height: 50px
+}
+
+.episodes .episode-title {
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block
+}
+
+.episodes .links {
+    margin-top: 5px
+}
+
+.episodes .links li {
+    display: inline
+}
+
+.episodes .links li:after {
+    content: "|";
+    color: #999;
+    padding: 0 5px 0 10px
+}
+
+.episodes .links li:last-child:after {
+    content: ""
+}
+
+.css-form input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+.css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+}

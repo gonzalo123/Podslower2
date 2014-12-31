@@ -1,0 +1,23 @@
+<div class="jumbotron">
+    <pod-slower-player></pod-slower-player>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">{{id3.artist}} <span class="text-muted">{{id3.album}}</span></div>
+        <div class="panel-body">
+            {{id3.title}}
+        </div>
+    </div>
+
+    <audio controls autoplay preload id="player">
+        <source ng-src="{{trustSrc(url)}}"/>
+    </audio>
+
+    <p>
+        <a class="btn btn-lg btn-success" href="#" role="button" ng-click="podslow(70)">70%</a>
+        <a class="btn btn-lg btn-success" href="#" role="button" ng-click="podslow(80)">80%</a>
+        <a class="btn btn-lg btn-success" href="#" role="button" ng-click="podslow(90)">90%</a>
+        <a class="btn btn-lg btn-default" href="#" role="button" ng-click="podslow(100)">Original</a>
+        <a class="btn btn-lg btn-warning" href="#" role="button" ng-click="podslow(120)">120%</a>
+    </p>
+
+</div>
