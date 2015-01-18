@@ -15,6 +15,12 @@
 
     </p>
     <p>
-        <input type="submit" class="btn btn-lg btn-success" ng-click="listen(myForm)" value="PodSlow it!"/>
+        <input class="btn btn-lg btn-success" ng-click="listen(myForm)" value="PodSlow Url!"/>
+
+        <label class="btn btn-primary" for="my-file-selector">
+            <input id="my-file-selector" type="file" style="display:none;"
+                   onchange="angular.element(this).scope().mp3Selected(this.files)">
+            Open File
+        </label>
     </p>
 </div>

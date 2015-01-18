@@ -16,7 +16,7 @@
                     controller: 'HomeController'
                 })
                 .state('listen', {
-                    url: "/listen/:url",
+                    url: "/listen/:url/:file",
                     templateUrl: "partials/listen.html",
                     controller: 'ListenController'
                 })
@@ -26,13 +26,38 @@
                 });
         })
 
-        .controller('HomeController', function ($scope, $state) {
+        .factory('Url', function ($window) {
+
+            return {
+                getUrlFromFile: function (file) {
+                    var url;
+
+                    if ($window.createObjectURL) {
+                        url = $window.createObjectURL(file)
+                    } else if ($window.createBlobURL) {
+                        url = $window.createBlobURL(file)
+                    } else if ($window.URL && $window.URL.createObjectURL) {
+                        url = $window.URL.createObjectURL(file)
+                    } else if ($window.webkitURL && $window.webkitURL.createObjectURL) {
+                        url = $window.webkitURL.createObjectURL(file)
+                    }
+
+                    return url;
+                }
+            };
+        })
+
+        .controller('HomeController', function ($scope, $state, Url) {
             $scope.listen = function (form) {
                 if (form.url.$valid) {
-                    $state.go('listen', {url: $scope.url});
+                    $state.go('listen', { url: $scope.url, file: null });
                 } else {
                     sweetAlert("Oops...", "Check the mp3 url! It seems that it's not a valid one", "error");
                 }
+            };
+
+            $scope.mp3Selected = function (file) {
+                $state.go('listen', {url: Url.getUrlFromFile(file[0]), file: file[0].name});
             };
         })
 
@@ -46,19 +71,23 @@
 
             $scope.id3 = {title: 'Fetching ID3v2 tags ...'};
 
-            $http.get(config.apiUrl + '/mp3info?mp3=' + $scope.url).success(function (data) {
-                try {
-                    var title = data.hasOwnProperty('title') ?
-                        data.title[0] :
-                        data.album[0];
+            if ($stateParams.local == false) {
+                $http.get(config.apiUrl + '/mp3info?mp3=' + $scope.url).success(function (data) {
+                    try {
+                        var title = data.hasOwnProperty('title') ?
+                            data.title[0] :
+                            data.album[0];
 
-                    $scope.id3.title = title;
-                    $scope.id3.album = data.album[0];
-                    $scope.id3.artist = data.artist[0];
-                } catch (err) {
-                    handleError();
-                }
-            }).error(handleError);
+                        $scope.id3.title = title;
+                        $scope.id3.album = data.album[0];
+                        $scope.id3.artist = data.artist[0];
+                    } catch (err) {
+                        handleError();
+                    }
+                }).error(handleError);
+            } else {
+                $scope.id3 = {title: $stateParams.file};
+            }
 
             $scope.trustSrc = function (src) {
                 return $sce.trustAsResourceUrl(src);
